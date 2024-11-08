@@ -23,11 +23,13 @@ class Mold {
       this.vy = sin(this.heading);
       this.rotAngle = 270;
       this.stop = false // Boolean variable to stop molds from moving 
-      this.speed = random(1, 100); // Each mold gets a random speed
+      this.speed = random(0.1, 50); // Each mold gets a random speed
 
       this.noiseOffset = random(1000); // Random offset for each mold to make the noise different
 
 
+        // Assign random color values
+      this.color = color(random(100, 255), random(100, 255), random(100, 255)); // RGB random colors
 
    
       
@@ -36,7 +38,7 @@ class Mold {
       this.lSensorPos = createVector(0, 0);
       this.fSensorPos = createVector(0, 0);
       this.sensorAngle = 50;
-      this.sensorDist = 2050;
+      this.sensorDist = 2500;
       
     }
     
@@ -97,7 +99,7 @@ class Mold {
     
     display() {
       noStroke();
-      fill(255);
+      fill(this.color);
       ellipse(this.x, this.y, this.r*2, this.r*2);
       
       line(this.x, this.y, this.x + this.r*3*this.vx, this.y + this.r*3*this.vy);
